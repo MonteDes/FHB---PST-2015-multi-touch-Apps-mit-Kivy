@@ -1,0 +1,31 @@
+<MainScreen>
+    GridLayout:
+        #size:400, 150
+        size_hint: 1, 1
+        pos_hint: { 'center_x' : .5, 'center_y' : .5 }
+        rows:2
+        cols:1
+        padding:5
+        spacing:5
+		TextInput:
+            id: input
+            size_hint: 0.1, 0.1
+            multiline: False
+            write_tab: False
+            on_text_validate: app.sendMessage(input, input.text, output, sv)
+		ScrollView:
+			do_scroll_y: True
+			do_scroll_x: False
+			size_hint: 1, 1
+			id: sv
+			Label:
+				size_hint: 1, 1.01
+				id: output
+				text_size: self.size
+				valign: 'top'
+				halign: 'left'
+				text: "[color=ff3333]Press Enter in the Chatfield above to start showing received messages,[/color] typing stop closes the App."
+				multiline: True
+				write_tab: False
+				readonly: True
+				markup: True
